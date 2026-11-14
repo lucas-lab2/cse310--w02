@@ -81,7 +81,9 @@
     </div>
   </main>
 
-  <!-- tracker.js must load first because app.js uses its functions -->
+  <!-- Day.js: a date library written by someone else, loaded from a CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js"></script>
+  <!-- tracker.js must load before app.js because app.js uses its functions -->
   <script src="tracker.js"></script>
   <script src="app.js"></script>
 </body>

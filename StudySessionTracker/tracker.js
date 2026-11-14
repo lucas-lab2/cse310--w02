@@ -44,11 +44,16 @@ function removeSession(sessions, id) {
 }
 
 /**
- * Adds up all minutes in the list.
+ * Adds up all minutes in the list using RECURSION.
+ * Base case: no sessions left -> 0.
+ * Recursive case: this session's minutes + the total of the remaining sessions.
+ * @param {Array} sessions - The list of sessions.
+ * @param {number} index - Current position in the list (starts at 0).
  * @returns {number} Total minutes.
  */
-function totalMinutes(sessions) {
-  return sessions.reduce((sum, s) => sum + s.minutes, 0);
+function totalMinutes(sessions, index = 0) {
+  if (index >= sessions.length) return 0; // base case: end of the list
+  return sessions[index].minutes + totalMinutes(sessions, index + 1);
 }
 
 /**
@@ -61,15 +66,14 @@ function formatDuration(minutes) {
 }
 
 /**
- * Groups sessions by subject and totals the minutes of each.
+ * Groups sessions by subject and totals the minutes of each (uses reduce).
  * @returns {object} Example: { JavaScript: 120, Math: 45 }
  */
 function minutesBySubject(sessions) {
-  const result = {};
-  for (const s of sessions) {
+  return sessions.reduce((result, s) => {
     result[s.subject] = (result[s.subject] || 0) + s.minutes;
-  }
-  return result;
+    return result;
+  }, {});
 }
 
 /**

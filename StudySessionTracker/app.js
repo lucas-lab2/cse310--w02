@@ -1,5 +1,6 @@
 // app.js
 // Connects the HTML page to the logic in tracker.js (DOM + events + storage).
+// Uses the Day.js library (loaded from a CDN in index.html) to format dates.
 
 const STORAGE_KEY = "studySessions";
 let sessions = loadSessions();
@@ -166,17 +167,38 @@ function showToast(msg) {
 
 // ── Persistence ──────────────────────────────────────────────────────────────
 
+/**
+ * Reads the saved sessions from the browser's localStorage.
+ * @returns {Array} Saved sessions, or an empty array if there are none.
+ */
 function loadSessions() {
   const saved = localStorage.getItem(STORAGE_KEY);
   return saved ? JSON.parse(saved) : [];
 }
 
+/**
+ * Saves the current sessions to localStorage so they survive a page refresh.
+ */
 function saveSessions() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(sessions));
 }
 
 // ── Rendering ─────────────────────────────────────────────────────────────────
 
+/**
+ * Formats a YYYY-MM-DD string (e.g. "Nov 14, 2026") using the Day.js library.
+ * If the library did not load (for example, no internet), shows the raw date.
+ * @param {string} dateString
+ * @returns {string}
+ */
+function formatDate(dateString) {
+  if (typeof dayjs === "undefined") return dateString;
+  return dayjs(dateString).format("MMM D, YYYY");
+}
+
+/**
+ * Redraws the whole page: session list, stats, and per-subject summary.
+ */
 function render() {
   // 1. Session list
   listEl.innerHTML = "";
@@ -193,7 +215,7 @@ function render() {
 
       const dateSpan = document.createElement("span");
       dateSpan.className = "session-date";
-      dateSpan.textContent = s.date;
+      dateSpan.textContent = formatDate(s.date); // Day.js formatting
 
       const subjSpan = document.createElement("span");
       subjSpan.className = "session-subj";
@@ -296,6 +318,9 @@ btnStop.addEventListener("click", () => {
   showToast("⏹ Countdown stopped.");
 });
 
+/**
+ * Returns today's date as YYYY-MM-DD (default value of the date field).
+ */
 function today() {
   return new Date().toISOString().slice(0, 10);
 }
