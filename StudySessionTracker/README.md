@@ -6,21 +6,21 @@ As a software engineer, I wanted to strengthen my command of core JavaScript by 
 
 I created this software to learn how JavaScript handles functions, array methods (`map`, `filter`, `reduce`, `sort`), objects, DOM manipulation, event handling and browser storage, and to practice separating logic from the user interface. To run it, open `index.html` in any browser, fill in the subject, minutes and date, and click **Add session**.
 
-[Software Demo Video](http://REPLACE-WITH-YOUR-VIDEO-LINK)
+[Software Demo Video](https://www.youtube.com/watch?v=uoIZ71LSc-Y)
 
 # Development Environment
 
-* Visual Studio Code (code editor)
-* Google Chrome with DevTools (running and debugging the app)
-* Node.js (running the tests in `test.js` with `node test.js`)
-* Git and GitHub (version control and publishing)
+- Visual Studio Code (code editor)
+- Google Chrome with DevTools (running and debugging the app)
+- Node.js (running the tests in `test.js` with `node test.js`)
+- Git and GitHub (version control and publishing)
 
 The software is written in **JavaScript (ES6+)**, together with plain HTML and CSS for the page layout and style. No frameworks or external libraries were used.
 
 # Useful Websites
 
-* [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* [MDN - Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [MDN - localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
-* [The Modern JavaScript Tutorial](https://javascript.info/)
-* [Node.js Documentation](https://nodejs.org/en/docs)
+- [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [MDN - Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [MDN - localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+- [The Modern JavaScript Tutorial](https://javascript.info/)
+- [Node.js Documentation](https://nodejs.org/en/docs)

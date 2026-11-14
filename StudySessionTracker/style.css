@@ -259,6 +259,100 @@ button:active { transform: scale(.96); }
   transition: width .9s linear;
 }
 
+/* ── Countdown controls (Pause / Stop) ───────────────────── */
+.countdown-controls {
+  display: flex;
+  justify-content: center;
+  gap: .75rem;
+  margin-top: 1rem;
+}
+
+.btn-pause {
+  background: rgba(251,191,36,.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251,191,36,.35);
+  padding: .4rem 1rem;
+  font-size: .85rem;
+  border-radius: 8px;
+}
+
+.btn-pause:hover { background: rgba(251,191,36,.3); }
+
+.btn-resume {
+  background: rgba(52,211,153,.15);
+  color: #34d399;
+  border: 1px solid rgba(52,211,153,.35);
+  padding: .4rem 1rem;
+  font-size: .85rem;
+  border-radius: 8px;
+}
+
+.btn-resume:hover { background: rgba(52,211,153,.3); }
+
+.btn-stop {
+  background: rgba(233,69,96,.15);
+  color: #e94560;
+  border: 1px solid rgba(233,69,96,.35);
+  padding: .4rem 1rem;
+  font-size: .85rem;
+  border-radius: 8px;
+}
+
+.btn-stop:hover { background: rgba(233,69,96,.3); }
+
+/* Paused state — dim the clock digits */
+#countdown-section.paused .time-digits {
+  opacity: .45;
+}
+
+#countdown-section.paused .countdown-clock::after {
+  content: "PAUSED";
+  display: block;
+  text-align: center;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  color: #fbbf24;
+  margin-top: .4rem;
+}
+
+/* ── Toast ────────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(1rem);
+  background: rgba(30,30,50,.95);
+  border: 1px solid rgba(255,255,255,.12);
+  color: #e0e0e0;
+  font-size: .88rem;
+  padding: .6rem 1.2rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s, transform .25s;
+  white-space: nowrap;
+  z-index: 999;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Active session row highlight ─────────────────────────── */
+#session-list li.session-active {
+  border-color: rgba(251,191,36,.4);
+  background: rgba(251,191,36,.07);
+}
+
+#session-list li.session-active .session-subj::after {
+  content: " ⏱";
+  font-size: .8rem;
+  color: #fbbf24;
+}
+
 /* ── Session list ─────────────────────────────────────────── */
 #session-list {
   list-style: none;

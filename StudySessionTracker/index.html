@@ -46,8 +46,15 @@
         <div class="progress-bar-wrap">
           <div class="progress-bar-fill" id="cd-progress" style="width:100%"></div>
         </div>
+        <div class="countdown-controls">
+          <button id="btn-pause-resume" class="btn-pause">⏸ Pause</button>
+          <button id="btn-stop" class="btn-stop">⏹ Stop</button>
+        </div>
       </div>
     </div>
+
+    <!-- ── Toast notification ───────────────────────── -->
+    <div id="toast" class="toast" aria-live="polite"></div>
 
     <!-- ── Stats ───────────────────────────────────────── -->
     <div class="stats-row">
