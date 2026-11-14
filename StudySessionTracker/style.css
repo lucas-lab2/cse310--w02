@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; background: #f4f6f8; margin: 0; }
+main { max-width: 600px; margin: 2rem auto; background: #fff; padding: 1.5rem; border-radius: 8px; }
+form { display: flex; gap: .5rem; flex-wrap: wrap; }
+input { padding: .5rem; flex: 1; min-width: 120px; }
+button { padding: .5rem 1rem; cursor: pointer; }
+li { margin: .4rem 0; }
+.error { color: #c0392b; min-height: 1.2em; }
