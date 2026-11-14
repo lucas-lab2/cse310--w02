@@ -8,23 +8,70 @@
 </head>
 <body>
   <main>
-    <h1>Study Session Tracker</h1>
+    <h1>📚 Study Session Tracker</h1>
 
-    <form id="session-form">
-      <input id="subject" type="text" placeholder="Subject (e.g. JavaScript)">
-      <input id="minutes" type="number" min="1" placeholder="Minutes">
-      <input id="date" type="date">
-      <button type="submit">Add session</button>
-    </form>
-    <p id="error" class="error"></p>
+    <!-- ── Add session form ─────────────────────────────── -->
+    <div class="card">
+      <h2>➕ New Session</h2>
+      <form id="session-form">
+        <input id="subject" type="text" placeholder="Subject (e.g. JavaScript)">
+        <input id="minutes" type="number" min="1" placeholder="Duration (minutes)">
+        <input id="date" type="date">
+        <button type="submit">Start Tracking →</button>
+      </form>
+      <p id="error" class="error"></p>
+    </div>
 
-    <h2>Total time: <span id="total">0h 0min</span></h2>
+    <!-- ── Live countdown ──────────────────────────────── -->
+    <div class="card" id="countdown-section">
+      <h2>⏱ Active Session Countdown</h2>
+      <div class="countdown-wrapper">
+        <p class="countdown-subject" id="countdown-label">Studying <strong id="countdown-subject-name"></strong></p>
+        <div class="countdown-clock" id="countdown-clock">
+          <div class="time-unit">
+            <span class="time-digits" id="cd-hours">00</span>
+            <span class="time-label">hours</span>
+          </div>
+          <span class="time-sep">:</span>
+          <div class="time-unit">
+            <span class="time-digits" id="cd-minutes">00</span>
+            <span class="time-label">minutes</span>
+          </div>
+          <span class="time-sep">:</span>
+          <div class="time-unit">
+            <span class="time-digits" id="cd-seconds">00</span>
+            <span class="time-label">seconds</span>
+          </div>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="cd-progress" style="width:100%"></div>
+        </div>
+      </div>
+    </div>
 
-    <h2>By subject</h2>
-    <ul id="subjects"></ul>
+    <!-- ── Stats ───────────────────────────────────────── -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-value" id="total">0h 0min</div>
+        <div class="stat-label">Total Study Time</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-value" id="session-count">0</div>
+        <div class="stat-label">Sessions Logged</div>
+      </div>
+    </div>
 
-    <h2>Sessions</h2>
-    <ul id="session-list"></ul>
+    <!-- ── By subject ──────────────────────────────────── -->
+    <div class="card">
+      <h2>📊 By Subject</h2>
+      <ul id="subjects"></ul>
+    </div>
+
+    <!-- ── Session list ────────────────────────────────── -->
+    <div class="card">
+      <h2>🗓 All Sessions</h2>
+      <ul id="session-list"></ul>
+    </div>
   </main>
 
   <!-- tracker.js must load first because app.js uses its functions -->
